@@ -1,0 +1,34 @@
+💬 Mentor Insight
+
+If interviewer asks:
+
+“How did you handle long inputs?”
+
+You say:
+
+“I used tiktoken to estimate token usage and implemented chunking to ensure inputs stay within the model’s context window.”
+
+👉 That’s a strong answer
+
+Mentor Insight
+
+If interviewer asks:
+
+“How did you handle API failures?”
+
+You say:
+
+“I implemented exponential backoff retries using tenacity to handle rate limits and transient failures.”
+
+👉 That’s a very strong signal
+
+If you want your app to strictly use DeepSeek when OpenRouter is selected, go into your rag/llm_provider.py and change the payload lines in both functions:
+
+Find these lines (one in generate_stream and one in _generate_internal):
+
+Python
+"model": "openrouter/auto"
+Change them to:
+
+Python
+"model": "deepseek/deepseek-chat"
